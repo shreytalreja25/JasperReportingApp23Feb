@@ -1,0 +1,14 @@
+﻿@using JasperReportingApp23Feb.Models
+@model List<Report>
+
+<h2>Reports List</h2>
+
+<ul>
+    @foreach (var report in Model)
+    {
+        <li>
+            @Html.ActionLink(report.Label, "ViewReport", new { reportUri = report.Uri }, new { target = "_blank" })
+            <a href="@Url.Action("DownloadReport", new { reportUri = report.Uri })">Download PDF</a>
+        </li>
+    }
+</ul>
